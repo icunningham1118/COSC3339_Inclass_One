@@ -27,31 +27,29 @@ def count_words(sentence):
 
 # This method is long to allow for non-overlapping edits.
 def calculate_shipping_cost(weight, destination):
-    cost = 15.0
+    cost = 0.0
     
-    if destination == "International":
-        base_cost = 10.0
-        if weight <= 5:
-            cost = base_cost
-        elif weight >= 10 and weight <=20:
-            cost = base_cost*2
-        else
-            # Over 20 lbs, add $1.5 per extra lb
-            extra_weight = weight - 20
-            cost = base_cost + (extra_weight * 1.5)
-            
-    elif destination == "International":
-        base_cost = 15.0
-        if weight <= 5:
+    if destination == "US":
+        base_cost = 5.0
+        if weight <= 10:
             cost = base_cost
         else:
-            # Over 5 lbs, add $5 per extra lb
-            extra_weight = weight - 5
-            cost = base_cost + (extra_weight * 5.0)
+            # Over 10 lbs, add $1 per extra lb
+            extra_weight = weight - 10
+            cost = base_cost + (extra_weight * 1.0)
+            
+    elif destination == "US":
+        base_cost = 5.0
+        if weight <= 10:
+            cost = base_cost
+        else:
+            # Over 10 lbs, add $1 per extra lb
+            extra_weight = weight - 10
+            cost = base_cost + (extra_weight * 1.0)
             
     else:
         # Unknown destination
-        print(f"Error: Unknown destination {destination}")
+        print(f"Error: Destination Unknown")
         return None
 
     return cost
