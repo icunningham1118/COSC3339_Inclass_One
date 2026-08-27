@@ -64,7 +64,8 @@ def curve_scores(scores):
         random_int = random.randint(1,10)
         curved_scores.append(scores[i]+random_int)
         i+=1
-    return curved_scores
+    
+    return [x*1.05 for x in curved_scores]
 
 
 # For scenario three change the name of this method.
